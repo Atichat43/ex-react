@@ -1,0 +1,27 @@
+[2019-08-14]
+Notes: ! Create react hook from scratch
+Ideas: // Closure for state
+TODO:
+[ ] React function
+[ ] MyComponent
+======================================================
+-= TestCase =-
+[javascript]
+app = React.render(MyComponent)
+app.click()
+app = React.render(MyComponent)
+[end]
+
+# Expect: increment
+-> 1
+-> 2
+======================================================
+-= Planning =-
+// React
+- useState() return [state, setState]
+- render(Component) return Component.render()
+- constructor return { useState, render }
+
+// MyComponent
+- use React.useState
+- contructor return object with render, click
