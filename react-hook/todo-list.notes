@@ -10,6 +10,7 @@ TODO:
 app = React.render(MyComponent)
 app.click()
 app = React.render(MyComponent)
+app.click()
 [end]
 
 # Expect: increment
