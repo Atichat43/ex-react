@@ -5,7 +5,7 @@ TODO:
 
 Activity Log:
 [√] Revise React & useState
-[ ] Add new func useEffect
+[√] Add new func useEffect
 ======================================================
 -= TestCase =-
 [javascript]
@@ -54,43 +54,3 @@ app.click()
 // MyComponent
 - use React.useState
 - contructor return object with render, click
-
-
-const React = (() => {
-  let hooks = []
-  let idx = 0
-
-  const useState = initVal => {
-    const state = hooks[idx] || initVal
-    const _idx = idx
-    const setState = newValue => {
-      hooks[_idx] = newValue
-    }
-    idx++
-    return [state, setState]
-  }
-
-  const render = Component => {
-    const c = Component()
-    c.render()
-    return c
-  }
-
-  return { useState, render }
-})()
-
-const MyComponent = () => {
-  const [state, setCount] = React.useState(1)
-
-  return {
-    render: () => console.log(state),
-    click: () => setCount(state + 1),
-  }
-}
-
-
-var app = React.render(MyComponent)
-app.click()
-var app = React.render(MyComponent)
-app.click()
-var app = React.render(MyComponent)
