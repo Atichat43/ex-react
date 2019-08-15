@@ -1,9 +1,37 @@
+[2019-08-15]
+Notes: ! Support mutiple state & Implement Effect react hook
+Ideas: // Array, index & If change call callback func 
+TODO: 
+
+Activity Log:
+[√] Revise React & useState
+[ ] Add new func useEffect
+======================================================
+-= TestCase =-
+[javascript]
+app = React.render(MyComponent)
+app.click()
+app = React.render(MyComponent)
+app = React.render(MyComponent)
+app.type('boss')
+app = React.render(MyComponent)
+[end]
+
+# Expect: 
+-> changed
+-> count: 1, text: 'default name'
+-> changed
+-> count: 2, text: 'default name'
+-> count: 2, text: 'default name'
+-> changed
+-> count: 2, text: 'boss'
+
 [2019-08-14]
 Notes: ! Create react hook from scratch
 Ideas: // Closure for state
 TODO:
-[ ] React function
-[ ] MyComponent
+[√] React function
+[√] MyComponent
 ======================================================
 -= TestCase =-
 [javascript]
@@ -26,3 +54,43 @@ app.click()
 // MyComponent
 - use React.useState
 - contructor return object with render, click
+
+
+const React = (() => {
+  let hooks = []
+  let idx = 0
+
+  const useState = initVal => {
+    const state = hooks[idx] || initVal
+    const _idx = idx
+    const setState = newValue => {
+      hooks[_idx] = newValue
+    }
+    idx++
+    return [state, setState]
+  }
+
+  const render = Component => {
+    const c = Component()
+    c.render()
+    return c
+  }
+
+  return { useState, render }
+})()
+
+const MyComponent = () => {
+  const [state, setCount] = React.useState(1)
+
+  return {
+    render: () => console.log(state),
+    click: () => setCount(state + 1),
+  }
+}
+
+
+var app = React.render(MyComponent)
+app.click()
+var app = React.render(MyComponent)
+app.click()
+var app = React.render(MyComponent)
