@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Dog = ({ animal }) => {
-  if (animal !== 'cat'){
+  if (animal === 'Cat'){
     throw new Error ('THIS IS A NOT DOG !!!')
   }
 

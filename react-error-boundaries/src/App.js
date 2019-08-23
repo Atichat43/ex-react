@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 
 import Dog from './dog';
+import ErrorBoundary from './erorr-boundary';
 
-const animals = ['Husky', 'Komondor', 'Cat' ,'Akita'];
+const animals = ['Husky', 'Komondor', 'Cat', 'Akita'];
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         Error Boundaries
       </header>
       <div>
-        {animals.map(animal => <Dog animal={animal}/>)}
+        {animals.map(animal => (<ErrorBoundary><Dog animal={animal} /></ErrorBoundary>))}
       </div>
     </div>
   );
