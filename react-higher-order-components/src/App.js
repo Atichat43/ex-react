@@ -27,9 +27,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <p>Higher-order component</p>
-          <p>Number of contacts: {contacts && contacts.length}</p>
+          <p>Number of contacts: {contacts.length}</p>
         </header>
-        {contacts && <HomePage contacts={contacts}/>}
+        <HomePage contacts={contacts} />
       </div>
     )
   }
