@@ -21,7 +21,8 @@ class CustomTextInput extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    console.log('this.textInput.value', this.textInput.value)
+    this.props.targetButton.current.textContent = this.textInput.value
+    this.props.cb(true)
   };
 
   render() {
